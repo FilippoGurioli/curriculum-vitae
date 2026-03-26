@@ -2,58 +2,58 @@ header:
   name: Filippo Gurioli
   title: Software Engineer
   email: gurfi2001@gmail.com
-  location: Ravenna, Italy
+  location: Ravenna, Italia
   github: github.com/FilippoGurioli
   linkedin: linkedin.com/in/filippo-gurioli-23a926277
 
 summary: >
-  Software Engineer with a focus on distributed systems and cloud infrastructure.
-  Passionate about automating CI/CD pipelines and improving Developer Experience (DX).
+  Software Engineer focalizzato su sistemi distribuiti e infrastruttura cloud.
+  Appassionato di automazione CI/CD e miglioramento della Developer Experience (DX).
 
 skills:
-  - category: Core Languages
+  - category: Linguaggi Core
     values: [Python, Go, Rust, TypeScript, C#, SQL]
-  - category: Systems & Web
+  - category: Sistemi & Web
     values: [C, C++, Java, Kotlin, Scala, JavaScript, PHP, Dart]
-  - category: Infrastructure & DevOps
+  - category: Infrastruttura & DevOps
     values: [Docker, AWS (S3), GitHub Actions, Linux, Nginx, Git]
   - category: Frontend & Mobile
     values: [Angular, Vue, Jetpack Compose, Flutter, HTML/CSS, Unity]
   - category: Backend & Data
     values: [.NET Core, Express, Scikit-learn, Pandas]
-  - category: Architecture & Protocols
-    values: [Microservices, REST API, gRPC, WebSockets, Event-Driven]
+  - category: Architettura & Protocolli
+    values: [Microservizi, REST API, gRPC, WebSockets, Event-Driven]
 
 experience:
   - company: Components Engine
     role: Software Engineer
-    location: Cesena, Italy
-    period: 2024 — Present
+    location: Cesena, Italia
+    period: 2024 — Presente
     bullet_points:
-      - Architecte and bootstrap the foundation of IAfterSales, the company's flagship enterprise product.
-      - Develop a custom build automator tailored for internal product deployment, reducing manual build time by 75%.
-      - Collaborate within an agile team of 5 people.
+      - Progettazione e bootstrapping dell'architettura di IAfterSales, prodotto enterprise di punta dell'azienda.
+      - Sviluppo di un sistema di automazione delle build personalizzato per il deployment interno, riducendo i tempi manuali del 75%.
+      - Collaborazione all'interno di un team agile composto da 5 persone.
   
   - company: RTS
     role: Software Developer
-    location: Forlì, Italy
+    location: Forlì, Italia
     period: 2023
     bullet_points:
-      - Engineered company product during a university apprenticeship, focusing on learning and exploiting Angular features.
+      - Sviluppo del prodotto aziendale durante un tirocinio universitario, con focus sull'apprendimento e l'utilizzo delle funzionalità di Angular.
 
 education:
-  - institution: University of Bologna
-    degree: Master's Degree in Computer Science
+  - institution: Università di Bologna
+    degree: Laurea Magistrale in Informatica
     year: 2026
-    description: Focus on Distributed Systems, DevOps and Agile approach
+    description: Focus su Sistemi Distribuiti, DevOps e approccio Agile.
 
 projects:
   - name: AutoCV
-    description: A CI/CD pipeline for generating LaTeX and Web resumes.
+    description: Una pipeline CI/CD per la generazione automatica di curriculum in LaTeX e versione Web.
     link: github.com/FilippoGurioli/curriculum-vitae
   - name: Test 2 Code LLM
-    description: Academic research project that explores the capabilities of Large Language Models in generating code from test specifications.
+    description: Progetto di ricerca accademica che esplora le capacità dei Large Language Models nella generazione di codice a partire da specifiche di test.
     link: github.com/FilippoGurioli/test-2-code-llm
   - name: SandPiles
-    description: An online multiplayer turn-based strategy game based on the mathematical Abelian sandpile model.
+    description: Gioco di strategia a turni multiplayer online basato sul modello matematico "Abelian sandpile".
     link: github.com/AndreaB2000/ASW-project
