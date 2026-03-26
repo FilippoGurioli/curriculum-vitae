@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div class="cv-container">
+  <header>
+    <h1>{{ .Site.Data.cv.header.name }}</h1>
+    <p>{{ .Site.Data.cv.header.title }} | {{ .Site.Data.cv.header.location }}</p>
+    <nav>
+      <a href="mailto:{{ .Site.Data.cv.header.email }}">Email</a> |
+      <a href="https://{{ .Site.Data.cv.header.github }}">GitHub</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p>{{ .Site.Data.cv.summary }}</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    {{ range .Site.Data.cv.experience }}
+    <div class="job">
+      <h3>{{ .role }} at {{ .company }}</h3>
+      <span>{{ .period }}</span>
+      <ul>
+        {{ range .bullet_points }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      {{ range .Site.Data.cv.skills }}
+      <li><strong>{{ .category }}:</strong> {{ delimit .items ", " }}</li>
+      {{ end }}
+    </ul>
+  </section>
+</div>
+{{ end }}

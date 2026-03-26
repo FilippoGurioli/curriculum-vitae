@@ -1,0 +1,49 @@
+header:
+  name: "Jane Doe"
+  title: "Senior Software Engineer"
+  email: "jane.doe@email.com"
+  phone: "+1-555-0123"
+  location: "Berlin, Germany"
+  website: "https://janedoe.dev"
+  github: "github.com/janedoe"
+  linkedin: "linkedin.com/in/janedoe"
+
+summary: >
+  Backend-focused engineer with 6+ years of experience in distributed systems 
+  and cloud infrastructure. Passionate about CI/CD automation and DX.
+
+skills:
+  - category: "Languages"
+    items: ["Python", "Go", "Rust", "SQL"]
+  - category: "Tools & Infra"
+    items: ["Docker", "Kubernetes", "AWS", "Terraform", "GitHub Actions"]
+  - category: "Frameworks"
+    items: ["FastAPI", "gRPC", "React"]
+
+experience:
+  - company: "TechCorp Systems"
+    role: "Senior Software Engineer"
+    location: "Remote"
+    period: "2021 — Present"
+    bullet_points:
+      - "Architected a microservices mesh reducing latency by 30%."
+      - "Led the migration from Jenkins to GitHub Actions for 50+ repos."
+      - "Mentored 4 junior developers and established coding standards."
+  
+  - company: "Startuply"
+    role: "Software Engineer"
+    location: "London, UK"
+    period: "2018 — 2021"
+    bullet_points:
+      - "Developed a real-time data processing engine using Go and Kafka."
+      - "Reduced infrastructure costs by 20% through AWS instance optimization."
+
+education:
+  - institution: "University of Technology"
+    degree: "B.Sc. in Computer Science"
+    year: "2018"
+
+projects:
+  - name: "AutoCV"
+    description: "A CI/CD pipeline for generating LaTeX and Web resumes."
+    link: "github.com/janedoe/autocv"

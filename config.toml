@@ -1,0 +1,7 @@
+baseURL = 'https://FilippoGurioli.github.io/curriculum-vitae/'
+languageCode = 'en-us'
+title = 'My Curriculum Vitae'
+publishDir = 'public'
+
+[params]
+  data_source = "cv"
