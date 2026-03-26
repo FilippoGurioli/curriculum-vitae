@@ -14,11 +14,11 @@ summary: >
 
 skills:
   - category: "Languages"
-    items: ["Python", "Go", "Rust", "SQL"]
+    values: ["Python", "Go", "Rust", "SQL"]
   - category: "Tools & Infra"
-    items: ["Docker", "Kubernetes", "AWS", "Terraform", "GitHub Actions"]
+    values: ["Docker", "Kubernetes", "AWS", "Terraform", "GitHub Actions"]
   - category: "Frameworks"
-    items: ["FastAPI", "gRPC", "React"]
+    values: ["FastAPI", "gRPC", "React"]
 
 experience:
   - company: "TechCorp Systems"

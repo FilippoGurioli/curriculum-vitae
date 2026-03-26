@@ -14,6 +14,11 @@
         <li><strong>{{ .company }}</strong> - {{ .role }}</li>
     {{ end }}
     </ul>
+    <ul>
+    {{ range .Site.Data.cv.skills }}
+      <li><strong>{{ .category }}</strong> {{ delimit .values ", " }}</li>
+    {{ end }}
+    </ul>
 
     <hr>
     <p>If you see the name above, the YAML is connected!</p>

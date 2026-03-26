@@ -1,0 +1,36 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{((* header.name | te *))}} \\
+    ((* header.title | te *)) \\
+    ((* header.location | te *)) | ((* header.email | te *)) | ((* header.github | te *))
+\end{center}
+
+\section*{Summary}
+((* summary | te *))
+
+\section*{Experience}
+((% for job in experience %))
+\noindent \textbf{((* job.company | te *))} \hfill ((* job.period | te *)) \\
+\textit{((* job.role | te *))}
+\begin{itemize}[noitemsep,topsep=0pt]
+    ((% for point in job.bullet_points %))
+    \item ((* point | te *))
+    ((% endfor %))
+\end{itemize}
+\vspace{1em}
+((% endfor %))
+
+\section*{Skills}
+((% for skill in skills %))
+% Use bracket notation ['values'] to avoid conflict with dict.values()
+\textbf{((* skill.category | te *)):} ((* skill['values'] | join(', ') | te *)) \\
+((% endfor %))
+
+\end{document}

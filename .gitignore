@@ -1,1 +1,6 @@
 public/
+cv.tex
+*.aux
+*.log
+*.out
+*.pdf
