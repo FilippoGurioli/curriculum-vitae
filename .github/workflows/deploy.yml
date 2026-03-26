@@ -75,10 +75,17 @@ jobs:
           git push origin $TAG_NAME
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set Tag Name
+        id: vars
+        run: echo "tag=v$(date +'%Y.%m.%d-%H%M')" >> $GITHUB_OUTPUT
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: ${{ steps.vars.outputs.tag }}
+          name: "CV Release ${{ steps.vars.outputs.tag }}"
           files: cv.pdf
-          body: "Automated build of Curriculum Vitae from YAML source."
+          body: "Automated CV build."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
