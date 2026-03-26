@@ -1,4 +1,6 @@
 defaultContentLanguage = 'en'
+baseURL = 'https://FilippoGurioli.github.io/curriculum-vitae/'
+title = 'My Curriculum Vitae'
 
 [languages]
   [languages.en]
