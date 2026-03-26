@@ -1,15 +1,30 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+% Define brand color
+\definecolor{primary}{RGB}{0, 86, 179}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{primary}\uppercase}{}{0pt}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{8pt}
 
 \begin{document}
 
 \begin{center}
-    {\LARGE \textbf{((* header.name | te *))}} \\
-    ((* header.title | te *)) \\
-    ((* header.location | te *)) | ((* header.email | te *)) | ((* header.github | te *))
+    {\Huge \textbf{((* header.name | te *))}} \\
+    \vspace{4pt}
+    {\large \color{gray} ((* header.title | te *))} \\
+    \vspace{4pt}
+    \small 
+    ((* header.location | te *)) \textperiodcentered \ 
+    \href{mailto:((* header.email *))}{((* header.email | te *))} \textperiodcentered \ 
+    \href{https://((* header.github *))}{GitHub} \textperiodcentered \ 
+    \href{https://((* header.linkedin *))}{LinkedIn}
 \end{center}
 
 \section*{Summary}
@@ -17,20 +32,34 @@
 
 \section*{Experience}
 ((% for job in experience %))
-\noindent \textbf{((* job.company | te *))} \hfill ((* job.period | te *)) \\
-\textit{((* job.role | te *))}
-\begin{itemize}[noitemsep,topsep=0pt]
+\noindent \textbf{((* job.company | te *))} \hfill \textbf{((* job.period | te *))} \\
+\textit{((* job.role | te *))} \hfill \textit{((* job.location | te *))}
+\begin{itemize}[noitemsep,topsep=2pt,leftmargin=1.5em]
     ((% for point in job.bullet_points %))
     \item ((* point | te *))
     ((% endfor %))
 \end{itemize}
-\vspace{1em}
+\vspace{0.5em}
 ((% endfor %))
 
 \section*{Skills}
+\begin{description}[style=multiline,leftmargin=3cm,font=\bfseries\color{primary}]
 ((% for skill in skills %))
-% Use bracket notation ['values'] to avoid conflict with dict.values()
-\textbf{((* skill.category | te *)):} ((* skill['values'] | join(', ') | te *)) \\
+    \item[((* skill.category | te *))] ((* skill['values'] | join(', ') | te *))
+((% endfor %))
+\end{description}
+
+\section*{Projects}
+((% for project in projects %))
+\noindent \textbf{((* project.name | te *))} \hfill \href{https://((* project.link *))}{((* project.link | te *))} \\
+((* project.description | te *))
+\vspace{0.5em}
+((% endfor %))
+
+\section*{Education}
+((% for edu in education %))
+\noindent \textbf{((* edu.institution | te *))} \hfill \textbf{((* edu.year | te *))} \\
+((* edu.degree | te *)) \hfill ((* edu.description | te *))
 ((% endfor %))
 
 \end{document}

@@ -1,6 +1,7 @@
 header:
   name: Filippo Gurioli
   title: Software Engineer
+  profile_pic: https://avatars.githubusercontent.com/u/93600198?v=4
   email: gurfi2001@gmail.com
   location: Ravenna, Italy
   github: github.com/FilippoGurioli
@@ -30,7 +31,7 @@ experience:
     location: Cesena, Italy
     period: 2024 — Present
     bullet_points:
-      - Architecte and bootstrap the foundation of IAfterSales, the company's flagship enterprise product.
+      - Architect and bootstrap the foundation of IAfterSales, the company's flagship enterprise product.
       - Develop a custom build automator tailored for internal product deployment, reducing manual build time by 75%.
       - Collaborate within an agile team of 5 people.
   
