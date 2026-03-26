@@ -1,5 +1,5 @@
 public/
-cv.tex
+*.tex
 *.aux
 *.log
 *.out

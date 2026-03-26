@@ -1,69 +1,69 @@
 import yaml
+import os
 import re
 from jinja2 import Environment, FileSystemLoader
 
+# 1. LaTeX Escaping Filter (Essential for professional PDFs)
 def tex_escape(text):
     """
-    Finds and escapes LaTeX special characters found in the YAML strings.
+        :param text: the mistake-prone text
+        :return: the escaped text
     """
     if not isinstance(text, str):
         return text
-    
-    # Map of LaTeX special characters to their escaped versions
-    conv = {
-        '&': r'\&',
-        '%': r'\%',
-        '$': r'\$',
-        '#': r'\#',
-        '_': r'\_',
-        '{': r'\{',
-        '}': r'\}',
-        '~': r'\textasciitilde{}',
-        '^': r'\textasciicircum{}',
-        '\\': r'\textbackslash{}',
-    }
-    
-    # Create a regex pattern to match any of the keys in the conv dict
-    regex = re.compile('|'.join(re.escape(str(key)) for key in sorted(conv.keys(), key=lambda item: -len(item))))
-    return regex.sub(lambda mo: conv[mo.group()], text)
+    regex = re.compile(r'([&%$#_{}])')
+    return regex.sub(r'\\\1', text)
 
-def main():
-    # 1. Load the single source of truth
-    try:
-        with open("data/cv.yml", "r") as f:
-            cv_data = yaml.safe_load(f)
-    except FileNotFoundError:
-        print("Error: data/cv.yml not found.")
+# 2. Setup Jinja2 Environment
+env = Environment(
+    loader=FileSystemLoader('.'),
+    block_start_string='((%',
+    block_end_string='%))',
+    variable_start_string='((*',
+    variable_end_string='*))',
+    comment_start_string='((#',
+    comment_end_string='#))',
+)
+env.filters['te'] = tex_escape
+
+def generate_cvs():
+    data_dir = 'data'
+    template_file = 'templates/cv.tex.j2'
+    
+    # Ensure the data directory exists
+    if not os.path.exists(data_dir):
+        print(f"Error: Directory '{data_dir}' not found.")
         return
 
-    # 2. Setup Jinja2 with LaTeX-friendly delimiters
-    env = Environment(
-        loader=FileSystemLoader('templates'),
-        block_start_string='((%',
-        block_end_string='%))',
-        variable_start_string='((*',
-        variable_end_string='*))',
-        comment_start_string='((#',
-        comment_end_string='#))',
-        autoescape=False # LaTeX isn't HTML, so we handle escaping manually
-    )
+    # 3. Process every YAML file in the data folder
+    # This assumes files are named like 'cv_en.yml', 'cv_it.yml', etc.
+    for filename in os.listdir(data_dir):
+        if filename.startswith('cv_') and filename.endswith('.yml'):
+            # Extract language code (e.g., 'en' from 'cv_en.yml')
+            lang_code = filename.split('_')[1].replace('.yml', '')
+            
+            yaml_path = os.path.join(data_dir, filename)
+            output_tex = f"cv_{lang_code}.tex"
+            
+            print(f"Processing {lang_code.upper()} version...")
 
-    # 3. Register our custom LaTeX escape filter
-    # Usage in template: ((* variable | te *))
-    env.filters['te'] = tex_escape
+            try:
+                # Load the specific language data
+                with open(yaml_path, 'r', encoding='utf-8') as f:
+                    cv_data = yaml.safe_load(f)
 
-    # 4. Render the template
-    try:
-        template = env.get_template("cv.tex.j2")
-        output = template.render(**cv_data)
-        
-        # 5. Write the resulting .tex file
-        with open("cv.tex", "w") as f:
-            f.write(output)
-        print("🚀 Successfully generated cv.tex")
-        
-    except Exception as e:
-        print(f"Error during rendering: {e}")
+                # Render the template
+                template = env.get_template(template_file)
+                rendered_tex = template.render(**cv_data)
+
+                # Write the .tex file
+                with open(output_tex, 'w', encoding='utf-8') as f:
+                    f.write(rendered_tex)
+                
+                print(f"✅ Successfully generated {output_tex}")
+                
+            except Exception as e:
+                print(f"❌ Failed to generate {output_tex}: {e}")
 
 if __name__ == "__main__":
-    main()
+    generate_cvs()
