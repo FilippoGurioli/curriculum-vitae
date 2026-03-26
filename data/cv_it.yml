@@ -1,0 +1,59 @@
+header:
+  name: Filippo Gurioli
+  title: Software Engineer
+  email: gurfi2001@gmail.com
+  location: Ravenna, Italy
+  github: github.com/FilippoGurioli
+  linkedin: linkedin.com/in/filippo-gurioli-23a926277
+
+summary: >
+  Software Engineer with a focus on distributed systems and cloud infrastructure.
+  Passionate about automating CI/CD pipelines and improving Developer Experience (DX).
+
+skills:
+  - category: Core Languages
+    values: [Python, Go, Rust, TypeScript, C#, SQL]
+  - category: Systems & Web
+    values: [C, C++, Java, Kotlin, Scala, JavaScript, PHP, Dart]
+  - category: Infrastructure & DevOps
+    values: [Docker, AWS (S3), GitHub Actions, Linux, Nginx, Git]
+  - category: Frontend & Mobile
+    values: [Angular, Vue, Jetpack Compose, Flutter, HTML/CSS, Unity]
+  - category: Backend & Data
+    values: [.NET Core, Express, Scikit-learn, Pandas]
+  - category: Architecture & Protocols
+    values: [Microservices, REST API, gRPC, WebSockets, Event-Driven]
+
+experience:
+  - company: Components Engine
+    role: Software Engineer
+    location: Cesena, Italy
+    period: 2024 — Present
+    bullet_points:
+      - Architecte and bootstrap the foundation of IAfterSales, the company's flagship enterprise product.
+      - Develop a custom build automator tailored for internal product deployment, reducing manual build time by 75%.
+      - Collaborate within an agile team of 5 people.
+  
+  - company: RTS
+    role: Software Developer
+    location: Forlì, Italy
+    period: 2023
+    bullet_points:
+      - Engineered company product during a university apprenticeship, focusing on learning and exploiting Angular features.
+
+education:
+  - institution: University of Bologna
+    degree: Master's Degree in Computer Science
+    year: 2026
+    description: Focus on Distributed Systems, DevOps and Agile approach
+
+projects:
+  - name: AutoCV
+    description: A CI/CD pipeline for generating LaTeX and Web resumes.
+    link: github.com/FilippoGurioli/curriculum-vitae
+  - name: Test 2 Code LLM
+    description: Academic research project that explores the capabilities of Large Language Models in generating code from test specifications.
+    link: github.com/FilippoGurioli/test-2-code-llm
+  - name: SandPiles
+    description: An online multiplayer turn-based strategy game based on the mathematical Abelian sandpile model.
+    link: github.com/AndreaB2000/ASW-project

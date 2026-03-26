@@ -1,7 +1,11 @@
-baseURL = 'https://FilippoGurioli.github.io/curriculum-vitae/'
-languageCode = 'en-us'
-title = 'My Curriculum Vitae'
-publishDir = 'public'
+defaultContentLanguage = 'en'
 
-[params]
-  data_source = "cv"
+[languages]
+  [languages.en]
+    languageName = 'English'
+    weight = 1
+    contentDir = 'content/en'
+  [languages.it]
+    languageName = 'Italiano'
+    weight = 2
+    contentDir = 'content/it'

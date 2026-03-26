@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ .Lang }}">
 <head>
     <meta charset="UTF-8">
-    <title>{{ .Site.Data.cv.header.name }}</title>
+    {{ $dataKey := printf "cv_%s" .Lang }}
+    {{ $cv := index .Site.Data $dataKey }}
+    
+    <title>{{ $cv.header.name }}</title>
 </head>
 <body>
-    <h1>Name: {{ .Site.Data.cv.header.name }}</h1>
-    <h2>Title: {{ .Site.Data.cv.header.title }}</h2>
+    <nav>
+        {{ range .AllTranslations }}
+            <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+    </nav>
+
+    {{ $dataKey := printf "cv_%s" .Lang }}
+    {{ $cv := index .Site.Data $dataKey }}
+
+    <h1>{{ $cv.header.name }}</h1>
+    <h2>{{ $cv.header.title }}</h2>
     
+    <p>{{ $cv.summary }}</p>
+
     <h3>Experience</h3>
     <ul>
-    {{ range .Site.Data.cv.experience }}
-        <li><strong>{{ .company }}</strong> - {{ .role }}</li>
+    {{ range $cv.experience }}
+        <li>
+            <strong>{{ .company }}</strong> - {{ .role }} ({{ .period }})
+            <ul>
+                {{ range .bullet_points }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </li>
     {{ end }}
     </ul>
+
+    <h3>Skills</h3>
     <ul>
-    {{ range .Site.Data.cv.skills }}
-      <li><strong>{{ .category }}</strong> {{ delimit .values ", " }}</li>
+    {{ range $cv.skills }}
+      <li><strong>{{ .category }}:</strong> {{ delimit .values ", " }}</li>
     {{ end }}
     </ul>
 
     <hr>
-    <p>If you see the name above, the YAML is connected!</p>
+    <p>Viewing version: <strong>{{ .Lang }}</strong></p>
 </body>
 </html>
