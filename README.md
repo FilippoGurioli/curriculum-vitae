@@ -1,11 +1,23 @@
-# Curriculum vitae
+# Curriculum Vitae
 
-This is my curriculum vitae.
+This repository contains my professional CV, managed as a **Single Source of Truth** using YAML and automated via GitHub Actions.
 
-## Requirements
+## 🛠 The Architecture
+- **Source:** `data/cv.yml` (All content resides here)
+- **Web Engine:** [Hugo](https://gohugo.io/) (Generates the static site)
+- **PDF Engine:** Python + [Jinja2](https://jinja.palletsprojects.com/) + LaTeX (Generates the professional PDF)
+- **CI/CD:** [GitHub Actions](https://github.com/features/actions)
+  - Automatically compiles the LaTeX PDF on every push.
+  - Generates a unique **Calendar Versioning (CalVer)** tag.
+  - Deploys the web version to GitHub Pages.
+  - Attaches the latest PDF to a GitHub Release.
 
- - 2 main targets: latex pdf to be deployed during releases in github registries and whatever tool that takes as input a config file (md or YAML) and returns a static site to be deployed in GHP
-- it should have a single source of truth
-- that source should be either directly compatible with latex builder (i.e. a tex file) or directly compatible with GHP deployment (i.e. an md or YAML file)
-- my only job should be then create a converter from the source of truth (e.g. YAML) to the other deployment (e.g. latex)
-- all these deployments should be done automatically through GH workflows 
+## 📄 View My CV
+- **Web Version:** [filippogurioli.github.io/curriculum-vitae/](https://filippogurioli.github.io/curriculum-vitae/)
+- **PDF Version:** [Download Latest Release](https://github.com/FilippoGurioli/curriculum-viate/releases/latest)
+
+## 🏗 Setup & Local Development
+1. **Python Setup:** `pip install Jinja2 PyYAML`
+2. **Generate TeX:** `python generate_latex_cv.py`
+3. **Compile PDF:** `pdflatex cv.tex`
+4. **Run Web Dev:** `hugo server -D`
