@@ -14,7 +14,7 @@ This repository contains my professional CV, managed as a **Single Source of Tru
 
 ## 📄 View My CV
 - **Web Version:** [filippogurioli.github.io/curriculum-vitae/](https://filippogurioli.github.io/curriculum-vitae/)
-- **PDF Version:** [Download Latest Release](https://github.com/FilippoGurioli/curriculum-viate/releases/latest)
+- **PDF Version:** [Download Latest Release](https://github.com/FilippoGurioli/curriculum-vitae/releases/latest)
 
 ## 🏗 Setup & Local Development
 1. **Python Setup:** `pip install Jinja2 PyYAML`
